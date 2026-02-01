@@ -1,32 +1,45 @@
 
-{
-  expenses: [
-    { id: 123, title: "Tea", amount: 10 }
-  ]
-}
+## 📝 Notes
 
-case "ADD_EXPENSE":
-  return {
-    expenses: [...state.expenses, action.payload],
-  };
-What happens:
-Takes old expenses
-Adds new expense at the end
-Never mutates state (important in React)
+- **State**
+  - `{ expenses: [ { id: 123, title: "Tea", amount: 10 } ] }`
 
-const [state, dispatch] = useReducer(reducer, initialState);
-state.expenses → all expenses
-dispatch() → sends actions to reducer
+- **Reducer (ADD_EXPENSE)**
+  - `return { expenses: [...state.expenses, action.payload] }`
+  - Takes old expenses
+  - Adds new expense at the end
+  - Never mutates state (important in React)
 
-State Type Tool
-Form inputs (title, amount)	Simple, local	useState
-Expense list (add/delete)	Complex, action-based	useReducer
+- **useReducer**
+  - `const [state, dispatch] = useReducer(reducer, initialState)`
+  - `state.expenses` → all expenses
+  - `dispatch()` → sends actions to reducer
 
-UI → dispatch(action) → reducer → new state → UI re-renders
+- **State Type vs Tool**
+  - Form inputs (title, amount) → `useState`
+  - Expense list (add / delete) → `useReducer`
 
-Why {console.log(expense)} fails but {...console.log(expense)} doesn’t
-Code	Reason
-{console.log(expense)}	JSX tries to render result
-{...console.log(expense)}	Spread consumes undefined, renders nothing
+- **Flow**
+  - UI → dispatch(action) → reducer → new state → UI re-renders
 
-You’re basically hiding the side-effect.
+- **JSX console.log**
+  - `{console.log(expense)}` → JSX tries to render result
+  - `{...console.log(expense)}` → spread consumes `undefined`, renders nothing
+  - You’re basically hiding the side-effect
+
+---
+
+# 💰 Expense Tracker
+
+An **Expense Tracker** web application that helps users track of spending money  with a clean and user-friendly interface.
+
+## 🛠️ Tech Stack
+
+**Frontend**
+- React.js
+- HTML5
+- CSS3 / Tailwind CSS
+- JavaScript (ES6+)
+
+
+
